@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahid Miranda | Portfolio</title>
+    <style>
+        /* Smooth Scrolling Effect */
+        html { scroll-behavior: smooth; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
+        body { color: #333; background-color: #fff; line-height: 1.6; }
+        
+        /* Navigation Hover Effects */
+        nav { display: flex; justify-content: space-between; padding: 20px 10%; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); z-index: 1000; transition: background 0.3s; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: #333; font-size: 14px; font-weight: bold; text-transform: uppercase; position: relative; transition: color 0.3s; }
+        
+        /* Animated underline for Nav */
+        nav ul li a::after { content: ''; width: 0; height: 2px; background: #0056b3; position: absolute; bottom: -5px; left: 0; transition: width 0.3s; }
+        nav ul li a:hover::after { width: 100%; }
+        nav ul li a:hover { color: #0056b3; }
+        
+        /* Layout Sections */
+        section { padding: 80px 10%; }
+        .hero { display: flex; align-items: center; background: #fcfcfc; min-height: 80vh; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 40px; margin-bottom: 10px; }
+        .hero-text p { font-size: 18px; color: #666; margin-bottom: 20px; }
+        
+        /* Button Hover Effects */
+        .btn { padding: 12px 28px; border: 2px solid #333; text-decoration: none; color: #333; font-weight: bold; margin-right: 10px; display: inline-block; transition: all 0.3s ease; border-radius: 4px; }
+        .btn-dark { background: #333; color: #fff; }
+        .btn-dark:hover { background: #0056b3; border-color: #0056b3; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,86,179,0.3); }
+        .btn:not(.btn-dark):hover { background: #333; color: #fff; transform: translateY(-3px); }
+
+        /* Image Hover & Design */
+        .hero-img { flex: 1; text-align: right; }
+        .hero-img img{ width: 100%; height: auto; border-radius: 15px; transition: transform 0.5s; }
+        .hero-img div { display: inline-block; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.5s; width: 300px; height: 300px; }
+        .hero-img div:hover { transform: scale(1.03) rotate(1deg); }
+        .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 28px; position: relative; text-transform: uppercase; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: #0056b3; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* Card Hover Effects (Projects & Skills) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card { background: #fff; padding: 40px 30px; text-align: center; border: 1px solid #eee; border-radius: 10px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: #0056b3; }
+        .card h3 { margin-bottom: 15px; font-size: 18px; color: #222; transition: color 0.3s; }
+        .card:hover h3 { color: #0056b3; }
+
+        .about { display: flex; align-items: center; gap: 50px; }
+        .about-img { flex: 1; height: 400px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .about-content { flex: 1; }
+        .checklist { list-style: none; margin-top: 20px; }
+        .checklist li { margin-bottom: 10px; transition: transform 0.3s; cursor: default; }
+        .checklist li:hover { transform: translateX(10px); color: #0056b3; }
+        .checklist li::before { content: '✓ '; font-weight: bold; color: #0056b3; margin-right: 10px; }
+
+        /* Footer & Social Hover */
+        .footer { background: #f4f7f9; padding: 80px 10%; text-align: center; }
+        .footer-info { display: flex; justify-content: space-between; text-align: left; margin-top: 50px; border-top: 1px solid #ddd; padding-top: 30px; }
+        .social-links a { margin-right: 20px; text-decoration: none; color: #555; font-weight: bold; transition: all 0.3s; font-size: 15px; }
+        .social-links a:hover { color: #0056b3; padding-left: 5px; }
+
+        /* Responsive Fix */
+        @media (max-width: 768px) {
+            .hero, .about { flex-direction: column; text-align: center; }
+            .hero-img, .about-img { margin-top: 40px; width: 100%; height: auto; }
+            .hero-text { padding-right: 0; }
+            .footer-info { flex-direction: column; gap: 20px; text-align: center; }
+            .social-links { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div style="font-weight: bold; letter-spacing: 2px; color: #0056b3;">ZAHID MIRANDA</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HOME SECTION -->
+<section id="home" class="hero">
+    <div class="hero-text">
+        <p style="color:#0056b3; font-weight:bold; letter-spacing:1px;">HI THERE!</p>
+        <h1>I'm Zahid Miranda</h1>
+        <p> As an Information Systems student, I don't just study technology—I focus on how it solves real-world problems. I bring a blend of <strong>analytical thinking</strong>, <strong>technical adaptability</strong>, and a <strong>disciplined work ethic</strong> ready to drive efficiency in your next project.</p>
+        <a href="#contact" class="btn btn-dark">HIRE ME</a>
+        <a href="#projects" class="btn">VIEW MY WORK</a>
+    </div>
+    <div class="hero-img">
+        <div><img src="asset/profile.png" alt="Zahid Miranda Profile"></div>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about">
+    <div class="about-img">
+        <img src="asset/profile.png" alt="About Zahid">
+    </div>
+    <div class="about-content">
+        <h2 class="section-title" style="text-align: left; margin-left: 0;">ABOUT ME</h2>
+        <p>I am a responsible and dedicated Information Systems student from Davao City. I am highly motivated to apply my problem-solving skills and technical curiosity in a professional environment.</p>
+        <ul class="checklist">
+            <li>Active Listening & Communication</li>
+            <li>Problem Solving & Critical Thinking</li>
+            <li>Adaptability & Fast Learning</li>
+            <li>Teamwork and Collaboration</li>
+        </ul>
+    </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<style>
+    /* New styles for Project Thumbnails */
+    .project-img {
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+        border-radius: 8px 8px 0 0;
+        background: #eee;
+        margin-bottom: 15px;
+    }
+    
+    .project-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .card:hover .project-img img {
+        transform: scale(1.1);
+    }
+
+    .card {
+        padding: 0; /* Adjusting padding to let image fill the top */
+        overflow: hidden;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+</style>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" style="background-color: #fcfcfc;">
+    <h2 class="section-title">My Projects</h2>
+    <div class="grid">
+        <!-- Project 1 -->
+        <div class="card">
+            <div class="project-img">
+                <img src="asset/inventoryProject.png" alt="Inventory System">
+            </div>
+            <div class="card-content">
+                <h3>Inventory System</h3>
+                <p>A simple database project designed to track assets and equipment efficiently.</p>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card">
+            <div class="project-img">
+                <img src="asset/studentPortal.png" alt="Student Portal UI">
+            </div>
+            <div class="card-content">
+                <h3>Student Portal UI</h3>
+                <p>A clean, user-focused interface designed for managing academic records.</p>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card">
+            <div class="project-img">
+                <img src="asset/image_f27fc615.png" alt="Tech Support Log">
+            </div>
+            <div class="card-content">
+                <h3>Tech Support Log</h3>
+                <p>A tool developed to track, categorize, and resolve common hardware issues.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SKILLS SECTION (WHAT I DO) -->
+<section id="skills">
+    <h2 class="section-title">What I Do</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>System Analysis</h3>
+            <p>Evaluating workplace situations and finding practical technical solutions.</p>
+        </div>
+        <div class="card">
+            <h3>Information Systems</h3>
+            <p>Designing and managing data-driven procedures for team efficiency.</p>
+        </div>
+        <div class="card">
+            <h3>Technical Support</h3>
+            <p>Attentive listening and problem solving to meet customer and team needs.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT & FOOTER SECTION -->
+<section id="contact" class="footer">
+    <h2 style="max-width: 700px; margin: 0 auto 30px;">HAVE A PROJECT IN MIND? LET'S BUILD SOMETHING GREAT TOGETHER.</h2>
+    <div style="margin-top: 30px;">
+        <a href="mailto:zahid.miranda69@gmail.com" class="btn btn-dark">SEND AN EMAIL</a>
+    </div>
+    
+    <div class="footer-info">
+        <div>
+            <strong style="color:#0056b3">ZAHID MIRANDA</strong><br>
+            BS Information Systems<br>
+            Davao City, Philippines
+        </div>
+        <div class="social-links">
+            <strong style="display:block; margin-bottom:10px; color:#555">CONNECT WITH ME</strong>
+            <a href="linkedin.com/in/zahid-miranda-a8543040b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app&fbclid=IwY2xjawSVAPRleHRuA2FlbQIxMABicmlkETFRRHNrMld6S3BvTzVYZHhzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHmMmH8kuBb3sUfJbKwZM9I46heM0RxqYmOwr4IxIWj8Q_D60ED9xow3gcv66_aem_AwR14AC7hhmiv6VpJmE06g" target="_blank">LinkedIn</a>
+            <a href="https://www.facebook.com/xeyrid?rdid=gY3K1YSS9eXouVKD&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Egs3QrwZN#" target="_blank">Facebook</a>
+            <a href="https://github.com/ZhidDev" target="_blank">GitHub</a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
